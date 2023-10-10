@@ -1,13 +1,43 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Josefin+Sans:wght@400;500;700&family=Kanit:wght@300;500;700&family=Poppins:wght@500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+#home::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url('./assets/1.png') no-repeat center center/cover;
+    top: 0;
+    left: 0;
+   z-index: -1;
+    filter: blur(2px);
+    /* border-radius: 10px 20px 20px 10px; */
+}
+#imghome{
+    animation: alternate imgUp 1s linear infinite;
+}
+@keyframes imgUp {
+    to{
+        transform: translateY(-10px);
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+@layer components{
+    .icon_style{
+        @apply m-4 h-28 w-28 rounded-full bg-slate-100 flex flex-col items-center justify-center transition-all hover:invert-[1] animate-bounce -translate-y-3 ;
+    }
+    .conform{
+        @apply flex justify-end items-center sm:h-12 h-20 sm:w-1/2  m-3  flex-col sm:flex-row 
+    }
+    .label{
+        @apply font-normal text-xl font-popin my-4 mb-3 sm:w-1/4 w-full
+    }
+    .input{
+        @apply self-stretch sm:w-[80%] w-[90%] p-4 rounded-lg border border-blue-950 outline-none
+    }
 }
